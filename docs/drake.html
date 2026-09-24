@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drake — Presentación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --bg-alt: #141414;
+      --gold: #c9a227;
+      --gold-soft: #e8d48b;
+      --text: #f4f4f4;
+      --muted: #b8b8b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+    }
+
+    body {
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(to bottom, rgba(11,11,11,.95), rgba(11,11,11,.4), transparent);
+    }
+
+    .logo {
+      font-family: "Oswald", sans-serif;
+      font-weight: 700;
+      letter-spacing: .18em;
+      font-size: 1.35rem;
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .9rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero, .seccion {
+      min-height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero {
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background:
+        radial-gradient(ellipse at top, rgba(201,162,39,.12), transparent 55%),
+        var(--bg);
+    }
+
+    .hero h1 {
+      font-family: "Oswald", sans-serif;
+      font-size: clamp(4rem, 14vw, 9rem);
+      font-weight: 700;
+      letter-spacing: .12em;
+      line-height: .9;
+    }
+
+    .hero p {
+      margin-top: 1.25rem;
+      font-size: 1.15rem;
+      color: var(--gold-soft);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .scroll-hint {
+      margin-top: 3rem;
+      font-size: .8rem;
+      color: var(--muted);
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .seccion {
+      padding: 6rem 6vw;
+      gap: 4rem;
+    }
+
+    .seccion:nth-child(even) {
+      background: var(--bg-alt);
+      flex-direction: row-reverse;
+    }
+
+    .seccion .texto {
+      flex: 1;
+      max-width: 540px;
+    }
+
+    .seccion .numero {
+      font-family: "Oswald", sans-serif;
+      color: var(--gold);
+      letter-spacing: .2em;
+      font-size: .85rem;
+      margin-bottom: .5rem;
+    }
+
+    .seccion h2 {
+      font-family: "Oswald", sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 600;
+      letter-spacing: .04em;
+      margin-bottom: 1.25rem;
+      line-height: 1.15;
+    }
+
+    .seccion p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .seccion .imagen {
+      flex: 1;
+      max-width: 520px;
+    }
+
+    .seccion .imagen img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border: 1px solid rgba(201,162,39,.35);
+      display: block;
+      background: #1a1a1a;
+    }
+
+    .pie {
+      padding: 2.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: .85rem;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 800px) {
+      header {
+        padding: 1rem 1.25rem;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .seccion,
+      .seccion:nth-child(even) {
+        flex-direction: column;
+        padding: 5rem 1.5rem 3rem;
+        gap: 2rem;
+      }
+
+      .seccion .imagen,
+      .seccion .texto {
+        max-width: 100%;
+      }
+
+      .seccion .imagen img {
+        aspect-ratio: 16 / 10;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">DRAKE</div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#seccion-1">Orígenes</a>
+      <a href="#seccion-2">Música</a>
+      <a href="#seccion-3">Legado</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <h1>DRAKE</h1>
+    <p>Aubrey Drake Graham · Toronto</p>
+    <div class="scroll-hint">Desplaza para ver su historia</div>
+  </section>
+
+  <section class="seccion" id="seccion-1">
+    <div class="texto">
+      <div class="numero">01 — HISTORIA</div>
+      <h2>De Toronto a las pantallas</h2>
+      <p>Aubrey Drake Graham nació el 24 de octubre de 1986 en Toronto, Canadá. Creció en un hogar con raíces musicales: su padre era baterista y su madre, Sandi Graham, lo crió en la ciudad.</p>
+      <p>A los 15 años consiguió el papel de Jimmy Brooks en la serie canadiense <em>Degrassi: The Next Generation</em> (2001-2008). Allí se dio a conocer como actor antes de dar el salto a la música.</p>
+    </div>
+    <div class="imagen">
+      <img src="images/drake1.jpg" alt="Drake en sus inicios">
+    </div>
+  </section>
+
+  <section class="seccion" id="seccion-2">
+    <div class="texto">
+      <div class="numero">02 — HISTORIA</div>
+      <h2>El salto a la música</h2>
+      <p>Mientras actuaba, Drake empezó a grabar. En 2006 publicó el mixtape <em>Room for Improvement</em>. Luego llegaron <em>Comeback Season</em> (2007) y el decisivo <em>So Far Gone</em> (2009), con el éxito “Best I Ever Had”.</p>
+      <p>Ese mismo año firmó con Young Money Entertainment, el sello de Lil Wayne. En 2010 debutó con el álbum <em>Thank Me Later</em> y en 2011 consolidó su estilo con <em>Take Care</em>.</p>
+    </div>
+    <div class="imagen">
+      <img src="images/drake2.jpg" alt="Drake al inicio de su carrera musical">
+    </div>
+  </section>
+
+  <section class="seccion" id="seccion-3">
+    <div class="texto">
+      <div class="numero">03 — HISTORIA</div>
+      <h2>Ícono global</h2>
+      <p>Con <em>Views</em> (2016) y canciones como “One Dance” y “Hotline Bling”, Drake se convirtió en uno de los artistas más escuchados del mundo. Ha liderado las listas de Billboard una y otra vez y ha ganado varios premios Grammy.</p>
+      <p>También creó el sello OVO Sound y se convirtió en un símbolo de Toronto. Su mezcla de rap y melodía cambió el sonido del hip-hop contemporáneo.</p>
+    </div>
+    <div class="imagen">
+      <img src="images/drake3.jpg" alt="Drake en la cima de su carrera">
+    </div>
+  </section>
+
+  <footer class="pie">
+    Presentación educativa · Coloca las fotos en la carpeta <strong>images/</strong> con los nombres drake1.jpg, drake2.jpg y drake3.jpg
+  </footer>
+</body>
+</html>
